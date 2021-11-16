@@ -1,25 +1,26 @@
-<body>
-    <script>
-        function getParams(){
-	        var website = document.URL;
-            var idx = website.indexOf('?');
-	        var params = new Array();
-	        if (idx != -1) {
-                var pairs = website.substring(idx+1, website.length).split('&');
-                for (var i=0; i<pairs.length; i++){
-                    nameVal = pairs[i].split('=');
-                    params[nameVal[0]] = nameVal[1];
-                }
-            }
-            
-            return params;
-        }
-        params = getParams();
+<!DOCTYPE html>
+<html>
 
-        firstname = unescape(params["name"]);
-        age = unescape(params["age"]);
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Website/bootstrap.min.css">
+        <title>
+            Inventory
+        </title>
+        <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+        <script type="module" src="Website/get.js"></script>
+    </head>
 
-        document.write("firstname = " + firstname + "<br>");
-        document.write("age = " + age + "<br>");
-    </script>
-</body>
+    <body class="container" style="padding-bottom: 20px;">
+
+        <h1 class="text-primary" style="display: inline-block; padding-right: 500px; padding-bottom: 15px;">IT Equipment Inventory</h1>
+        <form method="post" action="addRow.html" style="display: inline-block;">
+            <button class="btn btn-primary" 
+            style="margin-left: 15px; margin-top: 10px; display: inline-block;">Add</button>
+        </form>
+        <div class="card" >
+            <table id="output">
+        </div>
+    </body>
+
+</html>
